@@ -1,0 +1,214 @@
+@import './variable';
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    background-color: $light-grayish-blue;
+    margin: 0;
+    padding: 70px 24px;
+
+    @media (min-width: 1024px) {
+        padding: 80px;
+        height: calc(100vh - 160px);
+    }
+}
+
+.testimonial {
+    position: relative;
+    border-radius: 7px;
+    background-color: $moderate-violet;
+    color: $white;
+    padding: 26px 33px;
+
+    &__bg-image {
+        position: absolute;
+        top: 0;
+        right: 24px;
+        z-index: 1;
+        transition: 1s;
+        
+        @media (min-width: 1440px) {
+            right: 80px;
+            transition: 1s;
+        }
+    }
+    
+    &__avatar {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 32px;
+            height: 32px;
+            background-color: $light-violet;
+            border-radius: 100%;
+            z-index: -1;
+        }
+
+        &--no-border {
+            @extend .testimonial__avatar;
+
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+    
+    &__avatar-image {
+        width: 28px;
+        border-radius: 100%;
+    }
+
+    &__user {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    &__name {
+        font-weight: 600;
+        margin: 0;
+        
+        &--status {
+            @extend .testimonial__name;
+            font-weight: 500;
+            font-size: 11px;
+            opacity: .5;
+            margin-top: 2px;
+        } 
+    }
+    
+    &__review {
+        position: relative;
+        font-weight: 600;
+        font-size: 20px;
+        margin: 20px 0;
+        z-index: 2;
+        
+        &--quotations {
+            @extend .testimonial__review;
+            font-weight: 500;
+            font-size: 13px;
+            opacity: .7;
+            margin: 0;
+        }
+    }
+
+    &--white {
+        @extend .testimonial;
+        background-color: $white;
+        color: $very-dark-grayish-blue;
+    }
+    
+    &--grayish-blue {
+        @extend .testimonial;
+        background-color: $very-dark-grayish-blue;
+    }
+
+    &--blackish-blue {
+        @extend .testimonial;
+        background-color: $very-dark-blackish-blue;
+    }
+}
+
+.grid {
+    &__container {
+        display: grid;
+        grid-template: repeat(5, [row] auto 1fr) / repeat(1, [col] 1fr);
+        grid-gap: 24px 30px;
+
+        @media (min-width: 768px) {
+            grid-template: repeat(3, [row] auto 1fr) / repeat(2, [col] 1fr);
+        }
+
+        @media (min-width: 1440px) {
+            grid-template: repeat(1, [row] auto 1fr) / repeat(4, [col] 1fr);
+        }
+    }
+
+    &__item-first {
+        grid-column: col 1;
+        grid-row: row 1;
+
+        @media (min-width: 1440px) {
+            grid-column: col 1 / span 2;
+            grid-row: row 1;
+        }
+    }
+
+    &__item-second {
+        grid-column: col 1;
+        grid-row: row 2;
+        
+        @media (min-width: 768px) {
+            grid-column: col 2;
+            grid-row: row 2;
+        }
+
+        @media (min-width: 1440px) {
+            grid-column: col 3;
+            grid-row: row 1;
+        }
+    }
+    
+    &__item-third {
+        grid-column: col 1;
+        grid-row: row 3;
+
+        @media (min-width: 768px) {
+            grid-column: col 1;
+            grid-row: row 2;
+        }
+
+        @media (min-width: 1440px) {
+            grid-column: col 1;
+            grid-row: auto;
+        }
+    }
+    
+    &__item-fourth {
+        grid-column: col 1;
+        grid-row: row 4;
+
+        @media (min-width: 768px) {
+            grid-column: col 2;
+            grid-row: row 1;
+        }
+
+        @media (min-width: 1440px) {
+            grid-column: col 2 / span 2;
+            grid-row: auto;
+        }
+    }
+    
+    &__item-fifth {
+        grid-column: col 1;
+        grid-row: row 5;
+
+        @media (min-width: 768px) {
+            grid-column: col 1;
+            grid-row: row 3;
+        }
+
+        @media (min-width: 1440px) {
+            grid-column: col 4;
+            grid-row: row 1 / span 2;
+        }
+    }
+}
+
+.attribution {
+    padding: 20px;
+    font-size: 11px;
+    text-align: center;
+    color: $very-dark-grayish-blue;
+    
+    &__link {
+        color: $moderate-violet;
+        font-weight: 600;
+    }
+}
